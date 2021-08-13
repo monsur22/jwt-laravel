@@ -28,20 +28,32 @@ config/app.php
 <p>use namespace for jwt auth
 use Tymon\JWTAuth\Contracts\JWTSubject;</p>
 <p>user model implements jwtsubject
+```
+
 class User extends Authenticatable implements JWTSubject {
 
-}</p>
+}
+```
+
+</p>
 <p>get jwt identifier
+```
+
 public function getJWTIdentifier() {
         return $this->getKey();
 }
 
 public function getJWTCustomClaims() {
         return [];
-}</p>
+}
+```
+
+</p>
 <p>After putting the above snippets the User model will look like this.
 
 User.php
+```
+
 <?php
 
 namespace App\Models;
@@ -103,7 +115,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims() {
         return [];
     }
-}</p>
+}
+```
+
+</p>
 <p>php artisan migrate
 </p>
 <p>config/auth.php
@@ -122,6 +137,8 @@ class User extends Authenticatable implements JWTSubject
 <p>create controller
 php artisan make:controller UserAuthController</p>
 <p>UserAuthController.php
+```
+
 <?php
 
 namespace App\Http\Controllers;
@@ -230,10 +247,15 @@ class UserAuthController extends Controller
         auth()->logout();
         return response()->json(['status' => 'success', 'message' => 'User logged out successfully']);
     }
-}</p>
+}
+```
+
+</p>
 <p>routes/api.php file.
 
 api.php
+```
+
 use App\Http\Controllers\UserAuthController;
 Route::group(['middleware' => 'api'], function ($router) {
     Route::post('register', [UserAuthController::class, 'register']);
@@ -241,7 +263,11 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::get('user', [UserAuthController::class, 'user']);
     Route::post('refresh', [UserAuthController::class, 'refresh']);
     Route::post('logout', [UserAuthController::class, 'logout']);
-});</p>
+});
+
+```
+
+</p>
 <p></p>
 <p></p>
 <p></p>
