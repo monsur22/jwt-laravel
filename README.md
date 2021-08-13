@@ -66,7 +66,8 @@ public function getJWTCustomClaims() {
 php artisan make:controller UserAuthController</p>
 <p>UserAuthController.php</p>
 <p>
-
+```
+```
 <?php
 
 namespace App\Http\Controllers;
@@ -177,7 +178,7 @@ class UserAuthController extends Controller
     }
 }
 ```
-
+```
 </p>
 <p>routes/api.php file.
 
