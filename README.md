@@ -28,7 +28,7 @@ config/app.php
 <p>use namespace for jwt auth
 use Tymon\JWTAuth\Contracts\JWTSubject;</p>
 <p>user model implements jwtsubject
-```
+``` laravel
 
 class User extends Authenticatable implements JWTSubject {
 
