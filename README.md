@@ -178,7 +178,6 @@ class UserAuthController extends Controller
     }
 }
 ```
-```
 </p>
 <p>routes/api.php file.
 
