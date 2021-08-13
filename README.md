@@ -28,8 +28,7 @@ config/app.php
 <p>use namespace for jwt auth
 use Tymon\JWTAuth\Contracts\JWTSubject;</p>
 <p>user model implements jwtsubject
-``` laravel
-
+```
 class User extends Authenticatable implements JWTSubject {
 
 }
@@ -38,11 +37,9 @@ class User extends Authenticatable implements JWTSubject {
 </p>
 <p>get jwt identifier
 ```
-
 public function getJWTIdentifier() {
         return $this->getKey();
 }
-
 public function getJWTCustomClaims() {
         return [];
 }
@@ -53,7 +50,6 @@ public function getJWTCustomClaims() {
 
 User.php
 ```
-
 <?php
 
 namespace App\Models;
@@ -138,7 +134,6 @@ class User extends Authenticatable implements JWTSubject
 php artisan make:controller UserAuthController</p>
 <p>UserAuthController.php
 ```
-
 <?php
 
 namespace App\Http\Controllers;
@@ -255,7 +250,6 @@ class UserAuthController extends Controller
 
 api.php
 ```
-
 use App\Http\Controllers\UserAuthController;
 Route::group(['middleware' => 'api'], function ($router) {
     Route::post('register', [UserAuthController::class, 'register']);
@@ -264,7 +258,6 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('refresh', [UserAuthController::class, 'refresh']);
     Route::post('logout', [UserAuthController::class, 'logout']);
 });
-
 ```
 
 </p>
